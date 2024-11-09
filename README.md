@@ -3,7 +3,7 @@
 A Python library for efficient and scalable ID management in Plotly Dash applications using dataclasses. Simplify and standardize the way you handle component IDs, enhancing maintainability, reducing errors, and improving developer experience.
 
 ## README Language
-[日本語版](./docs/README_ja.md)
+[日本語版](https://github.com/Dencyuman/dash-id-manager/blob/main/docs/README_ja.md)
 
 ## Features
 

@@ -1,6 +1,6 @@
 [project]
 name = "dash-id-manager"
-version = "0.1.0"
+version = "0.1.1"
 description = "Efficient id manager for Plotly Dash."
 authors = [{name = "Dencyuman", email = "takotakocyuman@gmail.com"}]
 license = { file = "LICENSE" }

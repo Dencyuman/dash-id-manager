@@ -1,6 +1,9 @@
 # Dash ID Manager
 Plotly DashアプリケーションにおけるID管理を効率的かつスケーラブルに行うためのPythonライブラリです。データクラスを使用してコンポーネントIDの管理を簡素化・標準化し、保守性の向上、エラーの削減、開発者体験の向上を実現します。
 
+## README Language
+[English Version](https://github.com/Dencyuman/dash-id-manager/blob/main/README.md)
+
 ## 特徴
 - **階層的なIDグルーピング**: データクラスを使用してIDを階層的にグループ化し、Dashアプリケーションの構造を反映します。
 - **自動プレフィックス挿入**: クラス階層に基づいてプレフィックスを自動的に挿入し、ページやコンポーネントの階層構造を示します。
