@@ -62,12 +62,12 @@ class DashboardContentIDs(ComponentIDs):
     graph: str
     data_table: str
 
-# すべてのIDグループを初期化
+# Initialize all ID groups
 header_ids = DashboardHeaderIDs()
 sidebar_ids = DashboardSidebarIDs()
 content_ids = DashboardContentIDs()
 
-# Dashコンポーネントでの使用例
+# Usage in app.py
 import dash
 from dash import html, dcc
 
