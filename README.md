@@ -107,4 +107,4 @@ if __name__ == '__main__':
 
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/Dencyuman/dash-id-manager/blob/main/LICENSE.md) file for details.

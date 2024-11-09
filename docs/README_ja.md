@@ -102,4 +102,4 @@ if __name__ == '__main__':
 - **不変のID**: フローズンデータクラスの使用により、IDがランタイムで変更されることなく整合性が保たれます。
 
 ## ライセンス
-このプロジェクトはMITライセンスの下で提供されています。詳細は[LICENSEファイル](../LICENSE.md)を参照してください。
+このプロジェクトはMITライセンスの下で提供されています。詳細は[LICENSEファイル](https://github.com/Dencyuman/dash-id-manager/blob/main/LICENSE.md)を参照してください。
