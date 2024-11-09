@@ -36,4 +36,3 @@ class BaseIDs(metaclass=AutoInitFalseMeta):
                 else:
                     formatted_field_name = f.name.replace('_', '-')
                     object.__setattr__(self, f.name, f"{concatenated_prefix}-{formatted_field_name}")
-                print(f"{f.name} => {getattr(self, f.name)}")
