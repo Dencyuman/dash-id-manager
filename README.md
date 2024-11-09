@@ -28,7 +28,8 @@ pip install dash-id-manager
 Here's an advanced example demonstrating how to efficiently manage IDs using Dash ID Manager in your Dash application:
 
 ```python
-# __init__.py
+# pages/__init__.py
+
 from dash_id_manager import BaseIDs
 from dataclasses import dataclass
 from typing import ClassVar
@@ -37,9 +38,6 @@ from typing import ClassVar
 class DashboardIDs(BaseIDs):
     _prefix: ClassVar[str] = "dashboard"
 
-    header: 'DashboardHeaderIDs'
-    sidebar: 'DashboardSidebarIDs'
-    content: 'DashboardContentIDs'
 
 @dataclass(frozen=True)
 class DashboardHeaderIDs(DashboardIDs):
@@ -48,12 +46,14 @@ class DashboardHeaderIDs(DashboardIDs):
     title: str
     logout_button: str
 
+    
 @dataclass(frozen=True)
 class DashboardSidebarIDs(DashboardIDs):
     _prefix: ClassVar[str] = "sidebar"
 
     navigation_menu: str
     profile_section: str
+
 
 @dataclass(frozen=True)
 class DashboardContentIDs(DashboardIDs):
@@ -62,14 +62,19 @@ class DashboardContentIDs(DashboardIDs):
     graph: str
     data_table: str
 
+
 # Initialize all ID groups
 header_ids = DashboardHeaderIDs()
 sidebar_ids = DashboardSidebarIDs()
 content_ids = DashboardContentIDs()
+```
 
-# Usage in app.py
+```python
+# app.py
+
 import dash
 from dash import html, dcc
+from pages import header_ids, sidebar_ids, content_ids
 
 app = dash.Dash(__name__)
 

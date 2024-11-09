@@ -25,7 +25,8 @@ pip install dash-id-manager
 以下は、Dash ID Managerを使用して効率的にIDを管理する高度な例です：
 
 ```python
-# __init__.py
+# pages/__init__.py
+
 from dash_id_manager import BaseIDs
 from dataclasses import dataclass
 from typing import ClassVar
@@ -34,39 +35,43 @@ from typing import ClassVar
 class DashboardIDs(BaseIDs):
     _prefix: ClassVar[str] = "dashboard"
 
-    header: 'DashboardHeaderIDs'
-    sidebar: 'DashboardSidebarIDs'
-    content: 'DashboardContentIDs'
 
 @dataclass(frozen=True)
 class DashboardHeaderIDs(DashboardIDs):
     _prefix: ClassVar[str] = "header"
-    
+
     title: str
     logout_button: str
 
+    
 @dataclass(frozen=True)
 class DashboardSidebarIDs(DashboardIDs):
     _prefix: ClassVar[str] = "sidebar"
-    
+
     navigation_menu: str
     profile_section: str
+
 
 @dataclass(frozen=True)
 class DashboardContentIDs(DashboardIDs):
     _prefix: ClassVar[str] = "content"
-    
+
     graph: str
     data_table: str
+   
 
-# すべてのIDグループを初期化
+# Initialize all ID groups
 header_ids = DashboardHeaderIDs()
 sidebar_ids = DashboardSidebarIDs()
 content_ids = DashboardContentIDs()
+```
 
-# Dashコンポーネントでの使用例
+```python
+# app.py
+
 import dash
 from dash import html, dcc
+from pages import header_ids, sidebar_ids, content_ids
 
 app = dash.Dash(__name__)
 
@@ -75,12 +80,12 @@ app.layout = html.Div([
         html.H1(id=header_ids.title),  # id = "dashboard-header-title"
         html.Button("Logout", id=header_ids.logout_button)  # id = "dashboard-header-logout-button"
     ], id=header_ids._prefix),  # id = "dashboard-header"
-    
+
     html.Aside([
         html.Nav(id=sidebar_ids.navigation_menu),  # id = "dashboard-sidebar-navigation-menu"
         html.Div(id=sidebar_ids.profile_section)  # id = "dashboard-sidebar-profile-section"
     ], id=sidebar_ids._prefix),  # id = "dashboard-sidebar"
-    
+
     html.Main([
         dcc.Graph(id=content_ids.graph),  # id = "dashboard-content-graph"
         html.Table(id=content_ids.data_table)  # id = "dashboard-content-data-table"
@@ -89,7 +94,7 @@ app.layout = html.Div([
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-````
+```
 
 ## デモンストレーションされたメリット
 - **階層的なグルーピング**: `DashboardIDs`は関連するすべてのコンポーネントIDをグループ化し、ページの構造を反映します。
