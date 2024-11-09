@@ -26,12 +26,12 @@ pip install dash-id-manager
 
 ```python
 # __init__.py
-from dash_id_manager import PageIDs, ComponentIDs
+from dash_id_manager import BaseIDs
 from dataclasses import dataclass
 from typing import ClassVar
 
 @dataclass(frozen=True)
-class DashboardIDs(PageIDs):
+class DashboardIDs(BaseIDs):
     _prefix: ClassVar[str] = "dashboard"
 
     header: 'DashboardHeaderIDs'
@@ -39,21 +39,21 @@ class DashboardIDs(PageIDs):
     content: 'DashboardContentIDs'
 
 @dataclass(frozen=True)
-class DashboardHeaderIDs(ComponentIDs):
+class DashboardHeaderIDs(DashboardIDs):
     _prefix: ClassVar[str] = "header"
     
     title: str
     logout_button: str
 
 @dataclass(frozen=True)
-class DashboardSidebarIDs(ComponentIDs):
+class DashboardSidebarIDs(DashboardIDs):
     _prefix: ClassVar[str] = "sidebar"
     
     navigation_menu: str
     profile_section: str
 
 @dataclass(frozen=True)
-class DashboardContentIDs(ComponentIDs):
+class DashboardContentIDs(DashboardIDs):
     _prefix: ClassVar[str] = "content"
     
     graph: str
